@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aria Bisht Abaya — The Maternity Project</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FAF7F3;
+    --warm-white: #FDFAF6;
+    --sand: #E8DDD0;
+    --caramel: #C4A882;
+    --deep-brown: #3D2B1F;
+    --mid-brown: #6B4C35;
+    --text-dark: #2A1F17;
+    --text-mid: #7A6659;
+    --text-light: #A89080;
+    --accent: #B8956A;
+    --accent-dark: #9A7A55;
+    --border: #E2D6C8;
+    --success: #7A9A7A;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Jost', sans-serif; background: var(--warm-white); color: var(--text-dark); }
+
+  /* ANNOUNCEMENT BAR */
+  .announce-bar {
+    background: var(--deep-brown);
+    color: #F0E8DF;
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+  .announce-bar span { color: var(--caramel); }
+
+  /* HEADER */
+  header {
+    background: var(--warm-white);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 20px rgba(61,43,31,0.06);
+  }
+  .header-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--deep-brown);
+    letter-spacing: 1px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .logo em { font-style: italic; color: var(--mid-brown); }
+  nav { display: flex; gap: 36px; }
+  nav a {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--text-mid);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--deep-brown); }
+  .header-icons { display: flex; gap: 20px; align-items: center; }
+  .header-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-mid);
+    font-size: 18px;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .header-icon:hover { color: var(--deep-brown); }
+  .cart-badge {
+    background: var(--caramel);
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+  }
+
+  /* BREADCRUMB */
+  .breadcrumb {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 16px 40px;
+    font-size: 12px;
+    color: var(--text-light);
+    letter-spacing: 1px;
+  }
+  .breadcrumb a { color: var(--text-light); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--accent); }
+  .breadcrumb span { margin: 0 8px; }
+
+  /* MAIN PRODUCT SECTION */
+  .product-section {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 20px 40px 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  /* GALLERY */
+  .gallery { position: sticky; top: 90px; }
+  .main-image-wrap {
+    position: relative;
+    background: var(--cream);
+    border-radius: 4px;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+    margin-bottom: 14px;
+  }
+  .main-image-wrap img { width: 100%; height: 100%; object-fit: cover; }
+  .main-image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, #EDE4D8 0%, #D9CEC1 40%, #C8BAA8 100%);
+    color: var(--mid-brown);
+    text-align: center;
+    padding: 40px;
+  }
+  .main-image-placeholder .img-icon { font-size: 60px; margin-bottom: 16px; opacity: 0.5; }
+  .main-image-placeholder h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; margin-bottom: 8px; color: var(--deep-brown); }
+  .main-image-placeholder p { font-size: 12px; letter-spacing: 1px; color: var(--text-mid); max-width: 260px; line-height: 1.8; }
+  .gallery-badges {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .badge {
+    padding: 5px 12px;
+    border-radius: 2px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .badge-sale { background: var(--deep-brown); color: #F0E8DF; }
+  .badge-fit { background: var(--caramel); color: white; }
+  .badge-ship { background: rgba(250,247,243,0.9); color: var(--mid-brown); border: 1px solid var(--caramel); }
+  .zoom-hint {
+    position: absolute;
+    bottom: 14px;
+    right: 14px;
+    background: rgba(255,255,255,0.85);
+    border-radius: 2px;
+    padding: 6px 12px;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: var(--text-mid);
+    text-transform: uppercase;
+  }
+  .thumbnails { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .thumb {
+    aspect-ratio: 3/4;
+    border-radius: 3px;
+    overflow: hidden;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    background: var(--cream);
+  }
+  .thumb.active { border-color: var(--caramel); }
+  .thumb:hover { border-color: var(--caramel); }
+  .thumb-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-mid);
+    padding: 8px;
+    text-align: center;
+    line-height: 1.5;
+  }
+  .thumb-1 { background: linear-gradient(145deg, #DDD4C5, #C8BAA8); }
+  .thumb-2 { background: linear-gradient(145deg, #E8E0D5, #D0C5B5); }
+  .thumb-3 { background: linear-gradient(145deg, #C5C0B8, #B0A898); }
+  .thumb-4 { background: linear-gradient(145deg, #D8D0C5, #C5BAA8); }
+  .thumb-icon { font-size: 20px; margin-bottom: 4px; opacity: 0.6; }
+
+  /* PRODUCT DETAILS */
+  .product-details { padding-top: 8px; }
+  .product-brand {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .product-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 400;
+    color: var(--deep-brown);
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+  .rating-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .stars { color: var(--caramel); font-size: 14px; letter-spacing: 2px; }
+  .rating-text { font-size: 12px; color: var(--text-mid); }
+  .rating-text a { color: var(--accent); text-decoration: none; }
+  .rating-text a:hover { text-decoration: underline; }
+  .price-section {
+    background: var(--cream);
+    border-radius: 6px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    border: 1px solid var(--border);
+  }
+  .price-row { display: flex; align-items: baseline; gap: 14px; margin-bottom: 6px; }
+  .price-sale { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 500; color: var(--deep-brown); }
+  .price-compare { font-size: 18px; color: var(--text-light); text-decoration: line-through; }
+  .price-savings {
+    display: inline-block;
+    background: var(--deep-brown);
+    color: #F0E8DF;
+    padding: 4px 12px;
+    border-radius: 2px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+  }
+  .product-description {
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 1.9;
+    margin-bottom: 28px;
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    border-left: 3px solid var(--caramel);
+    padding-left: 16px;
+  }
+
+  /* VARIANTS */
+  .variant-section { margin-bottom: 24px; }
+  .variant-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dark);
+    font-weight: 600;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .variant-label span { color: var(--text-mid); font-weight: 400; text-transform: none; letter-spacing: 0; font-size: 13px; }
+  .color-options { display: flex; gap: 10px; margin-bottom: 20px; }
+  .color-swatch {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid transparent;
+    outline: 2px solid transparent;
+    transition: all 0.2s;
+    position: relative;
+  }
+  .color-swatch.active { border-color: white; outline-color: var(--caramel); }
+  .color-swatch:hover { outline-color: var(--caramel); }
+  .swatch-cloud { background: linear-gradient(135deg, #E8E4DE, #D4CEC7); }
+  .swatch-blanco { background: linear-gradient(135deg, #F5F1EB, #E8E2DA); }
+  .swatch-caramel { background: linear-gradient(135deg, #C4A882, #A8895F); }
+  .swatch-tooltip {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--deep-brown);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 2px;
+    font-size: 10px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+  }
+  .color-swatch:hover .swatch-tooltip { opacity: 1; }
+  .size-options { display: flex; gap: 8px; flex-wrap: wrap; }
+  .size-btn {
+    min-width: 52px;
+    height: 44px;
+    border: 1.5px solid var(--border);
+    background: white;
+    border-radius: 3px;
+    font-size: 13px;
+    font-family: 'Jost', sans-serif;
+    cursor: pointer;
+    color: var(--text-dark);
+    transition: all 0.2s;
+    font-weight: 500;
+  }
+  .size-btn:hover { border-color: var(--caramel); color: var(--caramel); }
+  .size-btn.active { border-color: var(--deep-brown); background: var(--deep-brown); color: white; }
+  .size-guide-link { font-size: 11px; color: var(--accent); text-decoration: underline; cursor: pointer; margin-top: 8px; display: inline-block; letter-spacing: 0.5px; }
+
+  /* QUANTITY & BUTTONS */
+  .qty-row { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+  .qty-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; color: var(--text-dark); min-width: 70px; }
+  .qty-control { display: flex; align-items: center; border: 1.5px solid var(--border); border-radius: 3px; overflow: hidden; }
+  .qty-btn {
+    width: 42px;
+    height: 42px;
+    background: white;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: var(--text-mid);
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .qty-btn:hover { background: var(--cream); color: var(--deep-brown); }
+  .qty-num { width: 50px; text-align: center; border: none; font-size: 14px; font-family: 'Jost', sans-serif; color: var(--text-dark); background: white; font-weight: 500; }
+  .btn-atc {
+    width: 100%;
+    padding: 17px;
+    background: var(--deep-brown);
+    color: #F0E8DF;
+    border: none;
+    border-radius: 3px;
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .btn-atc:hover { background: var(--mid-brown); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(61,43,31,0.2); }
+  .btn-buynow {
+    width: 100%;
+    padding: 17px;
+    background: transparent;
+    color: var(--deep-brown);
+    border: 1.5px solid var(--deep-brown);
+    border-radius: 3px;
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-bottom: 24px;
+    transition: all 0.3s;
+  }
+  .btn-buynow:hover { background: var(--cream); }
+
+  /* BENEFITS */
+  .benefits { margin-bottom: 24px; }
+  .benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .benefit-item:last-child { border-bottom: none; }
+  .benefit-check { color: var(--success); font-size: 14px; margin-top: 1px; flex-shrink: 0; }
+  .benefit-text { font-size: 13.5px; color: var(--text-mid); line-height: 1.6; }
+  .benefit-text strong { color: var(--text-dark); font-weight: 600; }
+
+  /* TRUST BADGES */
+  .trust-badges {
+    display: flex;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .trust-badge {
+    flex: 1;
+    padding: 14px 8px;
+    text-align: center;
+    border-right: 1px solid var(--border);
+    background: white;
+  }
+  .trust-badge:last-child { border-right: none; }
+  .trust-badge-icon { font-size: 18px; margin-bottom: 4px; }
+  .trust-badge-text { font-size: 10px; letter-spacing: 0.5px; color: var(--text-mid); line-height: 1.4; }
+  .shipping-note {
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-mid);
+    padding: 14px;
+    background: var(--cream);
+    border-radius: 4px;
+    border: 1px solid var(--border);
+  }
+  .shipping-note strong { color: var(--text-dark); }
+
+  /* URGENCY */
+  .urgency-bar {
+    background: linear-gradient(135deg, #F5EEE5, #EDE3D7);
+    border: 1px solid var(--caramel);
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .urgency-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; flex-shrink: 0; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+  .urgency-text { font-size: 12.5px; color: var(--mid-brown); }
+  .urgency-text strong { color: var(--deep-brown); }
+
+  /* TABS */
+  .tabs-section {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 40px 60px;
+    border-top: 1px solid var(--border);
+  }
+  .tabs-nav {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 40px;
+    gap: 0;
+  }
+  .tab-btn {
+    padding: 18px 28px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .tab-btn.active { border-bottom-color: var(--deep-brown); color: var(--deep-brown); }
+  .tab-btn:hover { color: var(--deep-brown); }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+  .tab-content p { font-size: 15px; color: var(--text-mid); line-height: 2; margin-bottom: 20px; }
+  .tab-content h4 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; color: var(--deep-brown); margin-bottom: 14px; }
+  .tab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+  .tab-box { background: var(--cream); border-radius: 6px; padding: 28px; border: 1px solid var(--border); }
+  .tab-box h5 { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 500; color: var(--deep-brown); margin-bottom: 14px; }
+  .tab-list { list-style: none; }
+  .tab-list li { font-size: 13.5px; color: var(--text-mid); padding: 8px 0; border-bottom: 1px solid var(--border); display: flex; gap: 10px; }
+  .tab-list li:last-child { border-bottom: none; }
+  .tab-list li::before { content: '—'; color: var(--caramel); }
+
+  /* REVIEWS */
+  .reviews-section {
+    background: var(--cream);
+    padding: 70px 40px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .reviews-inner { max-width: 1300px; margin: 0 auto; }
+  .section-header { text-align: center; margin-bottom: 50px; }
+  .section-tag { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--caramel); margin-bottom: 12px; }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 400; color: var(--deep-brown); }
+  .reviews-summary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 50px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--border);
+  }
+  .big-rating { font-family: 'Cormorant Garamond', serif; font-size: 64px; font-weight: 300; color: var(--deep-brown); line-height: 1; }
+  .rating-details { text-align: left; }
+  .big-stars { font-size: 22px; color: var(--caramel); letter-spacing: 3px; }
+  .rating-count { font-size: 12px; color: var(--text-light); margin-top: 4px; letter-spacing: 0.5px; }
+  .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 36px; }
+  .review-card {
+    background: white;
+    border-radius: 6px;
+    padding: 28px;
+    border: 1px solid var(--border);
+    transition: box-shadow 0.3s;
+  }
+  .review-card:hover { box-shadow: 0 8px 30px rgba(61,43,31,0.08); }
+  .review-stars { color: var(--caramel); font-size: 13px; margin-bottom: 12px; }
+  .review-text { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 400; color: var(--text-dark); line-height: 1.8; margin-bottom: 20px; font-style: italic; }
+  .review-author { display: flex; align-items: center; gap: 12px; }
+  .review-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+    flex-shrink: 0;
+  }
+  .av1 { background: linear-gradient(135deg, #C4A882, #A8895F); }
+  .av2 { background: linear-gradient(135deg, #9A8070, #7A6058); }
+  .av3 { background: linear-gradient(135deg, #B0A090, #8A7868); }
+  .review-name { font-size: 13px; font-weight: 600; color: var(--text-dark); }
+  .review-location { font-size: 11px; color: var(--text-light); margin-top: 1px; }
+  .reviews-actions { display: flex; gap: 14px; justify-content: center; }
+  .btn-outline {
+    padding: 14px 32px;
+    border: 1.5px solid var(--deep-brown);
+    background: transparent;
+    border-radius: 3px;
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--deep-brown);
+    transition: all 0.2s;
+  }
+  .btn-outline:hover { background: var(--deep-brown); color: white; }
+
+  /* SOCIAL PROOF */
+  .social-section { padding: 70px 40px; }
+  .social-inner { max-width: 1300px; margin: 0 auto; }
+  .social-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: var(--deep-brown);
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+    line-height: 1.3;
+  }
+  .social-headline em { color: var(--accent); font-style: italic; }
+  .ugc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 40px; }
+  .ugc-card {
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 3/4;
+    cursor: pointer;
+  }
+  .ugc-bg {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .ugc-1 { background: linear-gradient(160deg, #DDD4C5 0%, #C4AE95 100%); }
+  .ugc-2 { background: linear-gradient(160deg, #C8C0B5 0%, #B0A090 100%); }
+  .ugc-3 { background: linear-gradient(160deg, #E0D8CC 0%, #CAB89C 100%); }
+  .ugc-4 { background: linear-gradient(160deg, #D0CAC0 0%, #B8ACA0 100%); }
+  .ugc-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(42,31,23,0.75));
+    padding: 20px 16px 16px;
+    color: white;
+    transform: translateY(6px);
+    transition: transform 0.3s;
+  }
+  .ugc-card:hover .ugc-overlay { transform: translateY(0); }
+  .ugc-tag { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.75); margin-bottom: 4px; }
+  .ugc-caption { font-size: 13px; font-weight: 500; }
+  .ugc-icon { font-size: 40px; opacity: 0.4; color: var(--mid-brown); }
+
+  /* RECOMMENDED */
+  .recs-section { background: var(--cream); padding: 70px 40px; border-top: 1px solid var(--border); }
+  .recs-inner { max-width: 1300px; margin: 0 auto; }
+  .recs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+  .rec-card {
+    background: white;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+  .rec-card:hover { transform: translateY(-4px); box-shadow: 0 14px 40px rgba(61,43,31,0.1); }
+  .rec-img {
+    aspect-ratio: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    opacity: 0.4;
+    color: var(--mid-brown);
+  }
+  .rec-img-1 { background: linear-gradient(145deg, #C5D4E0, #A8BECC); }
+  .rec-img-2 { background: linear-gradient(145deg, #C5D9C0, #A8C8A0); }
+  .rec-img-3 { background: linear-gradient(145deg, #C5C8E0, #A8ADCC); }
+  .rec-info { padding: 20px; }
+  .rec-name { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 500; color: var(--deep-brown); margin-bottom: 4px; }
+  .rec-desc { font-size: 12px; color: var(--text-light); margin-bottom: 12px; letter-spacing: 0.5px; }
+  .rec-price { font-size: 15px; font-weight: 600; color: var(--text-dark); }
+  .rec-compare { font-size: 12px; color: var(--text-light); text-decoration: line-through; margin-left: 6px; }
+  .rec-btn {
+    display: block;
+    margin: 12px 0 0;
+    padding: 10px;
+    text-align: center;
+    border: 1.5px solid var(--deep-brown);
+    border-radius: 3px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--deep-brown);
+    text-decoration: none;
+    transition: all 0.2s;
+    font-family: 'Jost', sans-serif;
+    cursor: pointer;
+    background: transparent;
+    width: 100%;
+  }
+  .rec-btn:hover { background: var(--deep-brown); color: white; }
+
+  /* FOOTER */
+  .newsletter-section {
+    background: var(--deep-brown);
+    padding: 70px 40px;
+    text-align: center;
+  }
+  .newsletter-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: #F0E8DF;
+    margin-bottom: 10px;
+  }
+  .newsletter-section p { font-size: 13px; color: #C4A882; margin-bottom: 30px; letter-spacing: 0.5px; }
+  .newsletter-form { display: flex; gap: 0; max-width: 440px; margin: 0 auto; }
+  .newsletter-input {
+    flex: 1;
+    padding: 15px 20px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(196,168,130,0.4);
+    border-right: none;
+    border-radius: 3px 0 0 3px;
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    color: white;
+    outline: none;
+  }
+  .newsletter-input::placeholder { color: rgba(196,168,130,0.6); }
+  .newsletter-input:focus { border-color: var(--caramel); background: rgba(255,255,255,0.12); }
+  .newsletter-submit {
+    padding: 15px 24px;
+    background: var(--caramel);
+    border: 1px solid var(--caramel);
+    border-radius: 0 3px 3px 0;
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .newsletter-submit:hover { background: var(--accent-dark); }
+  footer {
+    background: #2A1F17;
+    padding: 50px 40px 30px;
+  }
+  .footer-grid {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .footer-brand { }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 400; color: #F0E8DF; margin-bottom: 14px; }
+  .footer-tagline { font-size: 12px; color: #8A7060; line-height: 1.8; max-width: 260px; }
+  .footer-social { display: flex; gap: 14px; margin-top: 20px; }
+  .social-icon {
+    width: 36px; height: 36px;
+    border: 1px solid rgba(196,168,130,0.3);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: #8A7060; font-size: 14px; cursor: pointer; transition: all 0.2s;
+    text-decoration: none;
+  }
+  .social-icon:hover { border-color: var(--caramel); color: var(--caramel); }
+  .footer-col h6 {
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #C4A882;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 10px; }
+  .footer-col ul li a { font-size: 13px; color: #7A6655; text-decoration: none; transition: color 0.2s; }
+  .footer-col ul li a:hover { color: #C4A882; }
+  .footer-bottom {
+    max-width: 1300px;
+    margin: 24px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer-copy { font-size: 11px; color: #5A4A40; letter-spacing: 0.5px; }
+  .footer-payments { display: flex; gap: 8px; }
+  .payment-badge {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 3px;
+    padding: 4px 8px;
+    font-size: 10px;
+    color: #7A6655;
+    letter-spacing: 0.5px;
+  }
+
+  /* MOBILE RESPONSIVE */
+  @media (max-width: 900px) {
+    .product-section { grid-template-columns: 1fr; gap: 30px; padding: 20px 20px 40px; }
+    .gallery { position: static; }
+    nav { display: none; }
+    .header-inner { padding: 0 20px; }
+    header { padding: 0; }
+    .breadcrumb { padding: 14px 20px; }
+    .product-title { font-size: 32px; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .ugc-grid { grid-template-columns: repeat(2, 1fr); }
+    .recs-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .social-section, .reviews-section, .recs-section, .newsletter-section { padding: 50px 20px; }
+    .tabs-section { padding: 0 20px 40px; }
+    .tab-grid { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    footer { padding: 40px 20px 24px; }
+    .trust-badge-text { font-size: 9px; }
+  }
+  @media (max-width: 600px) {
+    .thumbnails { grid-template-columns: repeat(4, 1fr); }
+    .ugc-grid { grid-template-columns: repeat(2, 1fr); }
+    .reviews-summary { flex-direction: column; text-align: center; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .newsletter-form { flex-direction: column; }
+    .newsletter-input { border-right: 1px solid rgba(196,168,130,0.4); border-radius: 3px; border-bottom: none; border-radius: 3px 3px 0 0; }
+    .newsletter-submit { border-radius: 0 0 3px 3px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announce-bar">
+  <span>✦</span>&nbsp; UAE Delivery in <span>2–3 Days</span> &nbsp;·&nbsp; GCC Shipping Available &nbsp;·&nbsp; 
+  <span>20% OFF</span> on Selected Styles &nbsp;<span>✦</span>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo">The <em>Maternity</em> Project</a>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Shop</a>
+      <a href="#">About</a>
+      <a href="#">Reviews</a>
+      <a href="#">Contact</a>
+    </nav>
+    <div class="header-icons">
+      <button class="header-icon" style="font-size:15px;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </button>
+      <button class="header-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </button>
+      <button class="header-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <div class="cart-badge">0</div>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="#">Home</a><span>›</span>
+  <a href="#">Fashion</a><span>›</span>
+  Aria Bisht Abaya
+</div>
+
+<!-- MAIN PRODUCT SECTION -->
+<div class="product-section">
+
+  <!-- LEFT: GALLERY -->
+  <div class="gallery">
+    <div class="main-image-wrap">
+      <div class="main-image-placeholder">
+        <div class="img-icon">🧕</div>
+        <h3>Aria Bisht Abaya</h3>
+        <p>Premium studio photo — minimal, modest silhouette, elegant drape. Not styled as maternity-only.</p>
+      </div>
+      <div class="gallery-badges">
+        <span class="badge badge-sale">20% OFF</span>
+        <span class="badge badge-fit">Inclusive Fit</span>
+        <span class="badge badge-ship">UAE 2–3 Day Delivery</span>
+      </div>
+      <div class="zoom-hint">🔍 Hover to zoom</div>
+    </div>
+    <div class="thumbnails">
+      <div class="thumb thumb-1 active">
+        <div class="thumb-placeholder thumb-1">
+          <div class="thumb-icon">🧵</div>
+          Fabric Detail
+        </div>
+      </div>
+      <div class="thumb thumb-2">
+        <div class="thumb-placeholder thumb-2">
+          <div class="thumb-icon">✨</div>
+          Lifestyle Shot
+        </div>
+      </div>
+      <div class="thumb thumb-3">
+        <div class="thumb-placeholder thumb-3">
+          <div class="thumb-icon">📐</div>
+          Fit Guide
+        </div>
+      </div>
+      <div class="thumb thumb-4">
+        <div class="thumb-placeholder thumb-4">
+          <div class="thumb-icon">👗</div>
+          All Stages
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: PRODUCT DETAILS -->
+  <div class="product-details">
+    <div class="product-brand">The Maternity Project · G Linen</div>
+    <h1 class="product-title">Aria Bisht<br>Abaya</h1>
+
+    <div class="rating-row">
+      <span class="stars">★★★★★</span>
+      <span class="rating-text">4.9 / 5 &nbsp;·&nbsp; 128 reviews &nbsp;·&nbsp; <a href="#">Write a review</a></span>
+    </div>
+
+    <div class="price-section">
+      <div class="price-row">
+        <span class="price-sale">AED 809</span>
+        <span class="price-compare">AED 1,011</span>
+      </div>
+      <span class="price-savings">Save AED 202 · 20% OFF</span>
+    </div>
+
+    <p class="product-description">
+      A premium, minimal abaya designed for modern comfort — an adaptive silhouette that stays chic through body changes, without looking "maternity."
+    </p>
+
+    <!-- URGENCY -->
+    <div class="urgency-bar">
+      <div class="urgency-dot"></div>
+      <span class="urgency-text"><strong>Only 4 left in Cloud & Caramel.</strong> 12 women viewed this today.</span>
+    </div>
+
+    <!-- COLOR SELECTOR -->
+    <div class="variant-section">
+      <div class="variant-label">Color <span>— Cloud</span></div>
+      <div class="color-options">
+        <div class="color-swatch swatch-cloud active" onclick="selectColor(this, 'Cloud')">
+          <span class="swatch-tooltip">Cloud</span>
+        </div>
+        <div class="color-swatch swatch-blanco" onclick="selectColor(this, 'Blanco')">
+          <span class="swatch-tooltip">Blanco</span>
+        </div>
+        <div class="color-swatch swatch-caramel" onclick="selectColor(this, 'Caramel')">
+          <span class="swatch-tooltip">Caramel</span>
+        </div>
+      </div>
+
+      <!-- SIZE SELECTOR -->
+      <div class="variant-label" style="margin-top:16px;">Size <span>— M</span></div>
+      <div class="size-options">
+        <button class="size-btn" onclick="selectSize(this)">XS</button>
+        <button class="size-btn" onclick="selectSize(this)">S</button>
+        <button class="size-btn active" onclick="selectSize(this)">M</button>
+        <button class="size-btn" onclick="selectSize(this)">L</button>
+        <button class="size-btn" onclick="selectSize(this)">XL</button>
+      </div>
+      <a class="size-guide-link">Size Guide — What's my size?</a>
+    </div>
+
+    <!-- QUANTITY -->
+    <div class="qty-row">
+      <span class="qty-label">Quantity</span>
+      <div class="qty-control">
+        <button class="qty-btn" onclick="changeQty(-1)">−</button>
+        <input class="qty-num" type="number" value="1" min="1" id="qty" readonly>
+        <button class="qty-btn" onclick="changeQty(1)">+</button>
+      </div>
+    </div>
+
+    <!-- BUTTONS -->
+    <button class="btn-atc">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+      Add to Cart — AED 809
+    </button>
+    <button class="btn-buynow">Buy Now · Instant Checkout</button>
+
+    <!-- BENEFITS -->
+    <div class="benefits">
+      <div class="benefit-item">
+        <span class="benefit-check">✓</span>
+        <span class="benefit-text"><strong>Adaptive fit</strong> that supports body changes — pre, during, and post pregnancy</span>
+      </div>
+      <div class="benefit-item">
+        <span class="benefit-check">✓</span>
+        <span class="benefit-text"><strong>Premium minimal look</strong> that feels elevated, modest, and confidence-boosting</span>
+      </div>
+      <div class="benefit-item">
+        <span class="benefit-check">✓</span>
+        <span class="benefit-text"><strong>All-day comfort</strong> — no "maternity-only" styling, just chic everyday wearability</span>
+      </div>
+      <div class="benefit-item">
+        <span class="benefit-check">✓</span>
+        <span class="benefit-text"><strong>UAE 2–3 day delivery</strong> + hassle-free returns — see our return policy</span>
+      </div>
+    </div>
+
+    <!-- TRUST BADGES -->
+    <div class="trust-badges">
+      <div class="trust-badge">
+        <div class="trust-badge-icon">🔒</div>
+        <div class="trust-badge-text">Secure<br>Checkout</div>
+      </div>
+      <div class="trust-badge">
+        <div class="trust-badge-icon">🚚</div>
+        <div class="trust-badge-text">UAE 2–3<br>Day Delivery</div>
+      </div>
+      <div class="trust-badge">
+        <div class="trust-badge-icon">🌍</div>
+        <div class="trust-badge-text">GCC<br>Shipping</div>
+      </div>
+      <div class="trust-badge">
+        <div class="trust-badge-icon">✦</div>
+        <div class="trust-badge-text">Premium<br>Materials</div>
+      </div>
+      <div class="trust-badge">
+        <div class="trust-badge-icon">↩️</div>
+        <div class="trust-badge-text">Easy<br>Returns</div>
+      </div>
+    </div>
+
+    <div class="shipping-note">
+      🚚 <strong>Free UAE delivery in 2–3 days.</strong> GCC shipping available. Full tracking provided.
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCT TABS -->
+<div class="tabs-section">
+  <div class="tabs-nav">
+    <button class="tab-btn active" onclick="openTab(event,'desc')">Description</button>
+    <button class="tab-btn" onclick="openTab(event,'fit')">Fit & Fabric</button>
+    <button class="tab-btn" onclick="openTab(event,'ship')">Shipping & Returns</button>
+  </div>
+
+  <div id="desc" class="tab-content active">
+    <h4>Comfort That Doesn't Compromise Your Style</h4>
+    <p>The Aria Bisht Abaya was designed for the modern woman who refuses to choose between elegance and ease. Whether you're navigating pregnancy, postpartum life, or simply want clothing that moves with your body — this piece adapts without announcing itself as "maternity wear."</p>
+    <p>The signature bisht drape creates a beautifully modest silhouette that flatters every stage and shape. The relaxed cut through the body provides generous space where needed, while the structured shoulder and neckline maintain a polished, elevated look suitable for everything from daily errands to formal gatherings.</p>
+    <p>Crafted from G Linen's premium linen-blend fabric, this abaya breathes beautifully in the UAE's warm climate. It layers effortlessly, washes well, and resists wrinkling — built for real life, designed for chic living.</p>
+  </div>
+
+  <div id="fit" class="tab-content">
+    <div class="tab-grid">
+      <div class="tab-box">
+        <h5>Fit & Sizing</h5>
+        <ul class="tab-list">
+          <li>Relaxed, adaptive fit — designed to accommodate the body at every stage</li>
+          <li>Floor-length silhouette with a flowing bisht overlay</li>
+          <li>XS fits UK 6–8 / S fits UK 8–10 / M fits UK 10–12</li>
+          <li>L fits UK 12–14 / XL fits UK 14–16 / accommodates up to 36 weeks</li>
+          <li>Model is 168cm and wears a size S</li>
+          <li>We recommend sizing up if you prefer extra room during pregnancy</li>
+        </ul>
+      </div>
+      <div class="tab-box">
+        <h5>Fabric & Care</h5>
+        <ul class="tab-list">
+          <li>Premium linen-blend fabric by G Linen</li>
+          <li>Lightweight and breathable — ideal for UAE & GCC climate</li>
+          <li>Soft, pre-washed finish for immediate comfort</li>
+          <li>Machine wash cold, gentle cycle</li>
+          <li>Lay flat or hang to dry — avoid tumble drying</li>
+          <li>Light iron on low heat if needed</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div id="ship" class="tab-content">
+    <div class="tab-grid">
+      <div class="tab-box">
+        <h5>Shipping</h5>
+        <ul class="tab-list">
+          <li>UAE: Standard delivery in 2–3 business days</li>
+          <li>GCC countries: Shipping available, 4–7 business days</li>
+          <li>All orders fully tracked — tracking link sent by email</li>
+          <li>Orders placed before 2PM are dispatched same day</li>
+          <li>Free shipping on orders over AED 300 (UAE)</li>
+        </ul>
+      </div>
+      <div class="tab-box">
+        <h5>Returns & Exchanges</h5>
+        <ul class="tab-list">
+          <li>Returns accepted within 14 days of delivery</li>
+          <li>Items must be unworn, unwashed, tags attached</li>
+          <li>Exchange for a different size or color at no extra charge</li>
+          <li>Contact care@thematernityproject.com to initiate</li>
+          <li>Refunds processed within 5–7 business days</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- REVIEWS -->
+<div class="reviews-section">
+  <div class="reviews-inner">
+    <div class="section-header">
+      <div class="section-tag">Customer Reviews</div>
+      <h2 class="section-title">What Our Community Is Saying</h2>
+    </div>
+
+    <div class="reviews-summary">
+      <div class="big-rating">4.9</div>
+      <div class="rating-details">
+        <div class="big-stars">★★★★★</div>
+        <div class="rating-count">Based on 128 reviews</div>
+      </div>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I wore this throughout my entire second and third trimester and still reach for it postpartum. It never looked 'maternity' — just effortlessly elegant. The quality is unlike anything else I've found in Dubai."</p>
+        <div class="review-author">
+          <div class="review-avatar av1">L</div>
+          <div>
+            <div class="review-name">Layla A.</div>
+            <div class="review-location">Dubai, UAE · Verified Buyer</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I was so tired of searching for pieces that felt premium AND actually fit my changing body. This abaya does exactly that. I wore it to three family events during my pregnancy and felt completely confident every time."</p>
+        <div class="review-author">
+          <div class="review-avatar av2">S</div>
+          <div>
+            <div class="review-name">Sara M.</div>
+            <div class="review-location">Abu Dhabi, UAE · Verified Buyer</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"The fabric is just stunning — cool, breathable, and so beautifully constructed. Arrived in 2 days, packaged beautifully. I've already ordered the Caramel colour too. TMP has become my go-to for everything now."</p>
+        <div class="review-author">
+          <div class="review-avatar av3">N</div>
+          <div>
+            <div class="review-name">Nour K.</div>
+            <div class="review-location">Riyadh, KSA · Verified Buyer</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reviews-actions">
+      <button class="btn-outline">Write a Review</button>
+      <button class="btn-outline">Load More Reviews</button>
+    </div>
+  </div>
+</div>
+
+<!-- SOCIAL PROOF -->
+<div class="social-section">
+  <div class="social-inner">
+    <h2 class="social-headline">
+      Join <em>10,000+ women</em> who found premium comfort that doesn't look maternity.
+    </h2>
+    <div class="ugc-grid">
+      <div class="ugc-card">
+        <div class="ugc-bg ugc-1">
+          <div class="ugc-icon">👗</div>
+        </div>
+        <div class="ugc-overlay">
+          <div class="ugc-tag">Work & Events</div>
+          <div class="ugc-caption">Workday-ready elegance</div>
+        </div>
+      </div>
+      <div class="ugc-card">
+        <div class="ugc-bg ugc-2">
+          <div class="ugc-icon">☕</div>
+        </div>
+        <div class="ugc-overlay">
+          <div class="ugc-tag">Weekend Ease</div>
+          <div class="ugc-caption">Weekend comfort, zero effort</div>
+        </div>
+      </div>
+      <div class="ugc-card">
+        <div class="ugc-bg ugc-3">
+          <div class="ugc-icon">✨</div>
+        </div>
+        <div class="ugc-overlay">
+          <div class="ugc-tag">Post-Partum</div>
+          <div class="ugc-caption">Postpartum confidence</div>
+        </div>
+      </div>
+      <div class="ugc-card">
+        <div class="ugc-bg ugc-4">
+          <div class="ugc-icon">✈️</div>
+        </div>
+        <div class="ugc-overlay">
+          <div class="ugc-tag">Travel</div>
+          <div class="ugc-caption">Wrinkle-free travel companion</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RECOMMENDED -->
+<div class="recs-section">
+  <div class="recs-inner">
+    <div class="section-header" style="margin-bottom:40px;">
+      <div class="section-tag">Curated for You</div>
+      <h2 class="section-title">You May Also Love</h2>
+    </div>
+    <div class="recs-grid">
+      <div class="rec-card">
+        <div class="rec-img rec-img-1">👗</div>
+        <div class="rec-info">
+          <div class="rec-name">Hasmia Blue Dress</div>
+          <div class="rec-desc">Premium minimal comfort · Adaptive silhouette</div>
+          <div>
+            <span class="rec-price">AED 1,470</span>
+          </div>
+          <button class="rec-btn">Quick Add</button>
+        </div>
+      </div>
+      <div class="rec-card">
+        <div class="rec-img rec-img-2">👗</div>
+        <div class="rec-info">
+          <div class="rec-name">Khadeeja Green Dress</div>
+          <div class="rec-desc">Statement modest silhouette · All-day elegance</div>
+          <div>
+            <span class="rec-price">AED 1,790</span>
+          </div>
+          <button class="rec-btn">Quick Add</button>
+        </div>
+      </div>
+      <div class="rec-card">
+        <div class="rec-img rec-img-3">👕</div>
+        <div class="rec-info">
+          <div class="rec-name">Miranda Blue Top</div>
+          <div class="rec-desc">Easy elevated essential · Versatile layer</div>
+          <div>
+            <span class="rec-price">AED 795</span>
+          </div>
+          <button class="rec-btn">Quick Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NEWSLETTER -->
+<div class="newsletter-section">
+  <h2>Stay in the loop.</h2>
+  <p>Get early access to limited drops + styling tips for modern comfort wear.</p>
+  <div class="newsletter-form">
+    <input class="newsletter-input" type="email" placeholder="Your email address">
+    <button class="newsletter-submit">Subscribe</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">The Maternity Project</div>
+      <p class="footer-tagline">Premium, minimal comfort wear designed for modern women. Before, during, and beyond pregnancy — without compromise.</p>
+      <div class="footer-social">
+        <a href="#" class="social-icon">f</a>
+        <a href="#" class="social-icon">in</a>
+        <a href="#" class="social-icon">✉</a>
+        <a href="#" class="social-icon">𝕏</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h6>Shop</h6>
+      <ul>
+        <li><a href="#">New In</a></li>
+        <li><a href="#">Dresses</a></li>
+        <li><a href="#">Tops</a></li>
+        <li><a href="#">Outerwear</a></li>
+        <li><a href="#">Sale</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h6>Help</h6>
+      <ul>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Size Guide</a></li>
+        <li><a href="#">Shipping</a></li>
+        <li><a href="#">Returns</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h6>Company</h6>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">TMP Guide</a></li>
+        <li><a href="#">The Kind Closet</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms & Conditions</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 The Maternity Project. All Rights Reserved.</div>
+    <div class="footer-payments">
+      <span class="payment-badge">Visa</span>
+      <span class="payment-badge">Mastercard</span>
+      <span class="payment-badge">Apple Pay</span>
+      <span class="payment-badge">Google Pay</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Color selector
+  function selectColor(el, name) {
+    document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active'));
+    el.classList.add('active');
+    document.querySelector('.variant-label span') && (
+      document.querySelectorAll('.variant-label')[0].querySelector('span').textContent = '— ' + name
+    );
+  }
+
+  // Size selector
+  function selectSize(el) {
+    document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+    el.classList.add('active');
+    document.querySelectorAll('.variant-label')[1].querySelector('span').textContent = '— ' + el.textContent;
+  }
+
+  // Quantity
+  function changeQty(delta) {
+    const input = document.getElementById('qty');
+    const val = Math.max(1, parseInt(input.value) + delta);
+    input.value = val;
+  }
+
+  // Tabs
+  function openTab(event, tabId) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+
+  // Thumbnail selection
+  document.querySelectorAll('.thumb').forEach((thumb, i) => {
+    thumb.addEventListener('click', function() {
+      document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
